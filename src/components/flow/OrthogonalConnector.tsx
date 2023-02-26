@@ -812,11 +812,20 @@ export class OrthogonalConnector {
     }
 }
 
+// returns coordinates through which the path is to be drawn
 export function connectNodes(nodeA: ReactElement, nodeB: ReactElement) {
+    
+    // (left, top) represents the top left corner of the node
     const shapeA = { left: nodeA.props.x, top: nodeA.props.y, width: nodeA.props.width, height: nodeA.props.height };
     const shapeB = { left: nodeB.props.x, top: nodeB.props.y, width: nodeB.props.width, height: nodeB.props.height };
     
-    const path = OrthogonalConnector.route({
+    // side can take the following values ('top', 'bottom', 'left', 'right') 
+    // it refere to the side on which the edge meets the node
+    // distance varies from 0 to 1 
+    // it refers to the proportional distance of the point of meeting of the node and the edge from a side of the node
+    // e.g. distance: 0.5 means the point of meeting is the mid-point of that side
+    
+    const pathPoints = OrthogonalConnector.route({
         pointA: { shape: shapeA, side: 'top', distance: 0.5 },
         pointB: { shape: shapeB, side: 'bottom', distance: 0.5 },
         shapeMargin: 10,
@@ -824,5 +833,5 @@ export function connectNodes(nodeA: ReactElement, nodeB: ReactElement) {
         globalBounds: { left: 0, top: 0, width: 1000, height: 1000 },
     });
 
-    return path;
+    return pathPoints;
 }

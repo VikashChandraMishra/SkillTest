@@ -14,37 +14,18 @@ type OrthogonalPathParams = {
     pathPoints: pathPoint[];
 };
 
-const bends = {
-    clockwise: {
-        topRight: 'q 10 0 10 10',
-        bottomRight: 'q 0 10 -10 10',
-        bottomLeft: 'q -10 0 -10 -10',
-        topLeft: 'q 0 -10 10 -10'
-    },
-    antiClockWise: {
-        topRight: 'q 10 0 10 10',
-        bottomRight: 'q 0 10 -10 10',
-        bottomLeft: 'q -10 0 -10 -10',
-        topLeft: 'q 0 -10 10 -10'
-    }
-}
-
 function buildOrthogonalEdge({
-    sourceX,
-    sourceY,
-    targetX,
-    targetY,
     pathPoints
 }: OrthogonalPathParams) {
 
-    const { clockwise, antiClockWise } = bends;
     let path = `M${pathPoints[0].x},${pathPoints[0].y}`;
     
+    // generates path by looping through the pathPoints
     for (let i=0; i<pathPoints.length; i++) {
         path += `L${pathPoints[i].x},${pathPoints[i].y}`;
     }
-    return path;
 
+    return path;
 }
 
 const OrthogonalEdgeRouter = memo(
