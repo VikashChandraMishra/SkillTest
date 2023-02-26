@@ -13,7 +13,6 @@ function buildNodePath({
     y,
     width,
     height,
-    name
 }: NodeParams) {
     return `M${x + 10},${y} L${x + width - 10},${y} q 10 0 10 10 L${x + width},${y + height - 10} q 0 10 -10 10 L${x + 10},${y + height} q -10 0 -10 -10 L${x},${y + 10} q 0 -10 10 -10`;
 }
