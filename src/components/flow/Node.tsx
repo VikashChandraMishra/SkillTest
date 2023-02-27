@@ -8,7 +8,7 @@ type NodeParams = {
     name: string;
 };
 
-function buildNodePath({
+function buildNodeBoundary({
     x,
     y,
     width,
@@ -26,7 +26,7 @@ const Node = memo(
         name,
         testId,
     }: NodeParams & { testId?: string }) => {
-        const path = buildNodePath({ x, y, width, height, name });
+        const path = buildNodeBoundary({ x, y, width, height, name });
 
         return (
             <>
@@ -37,6 +37,7 @@ const Node = memo(
                     strokeWidth={1}
                     stroke="#eee"
                 />
+                {/* displays the name of the node at almost its center */}
                 <text x={x + width / 2 - 20} y={y + height / 2} fill="white">{name}</text>
             </>
         );

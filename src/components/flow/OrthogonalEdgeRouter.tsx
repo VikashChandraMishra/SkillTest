@@ -22,7 +22,7 @@ function buildOrthogonalEdge({
     
     // generates path by looping through the pathPoints
     for (let i=0; i<pathPoints.length; i++) {
-        path += `L${pathPoints[i].x},${pathPoints[i].y}`;
+        path += ` L${pathPoints[i].x},${pathPoints[i].y}`;
     }
 
     return path;

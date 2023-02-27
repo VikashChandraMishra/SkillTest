@@ -19,21 +19,20 @@ function App() {
   const generatePathPoints = () => {
 
     // the same nodes between which the edge is to be drawn have to be passed 
-
-    setPathPoints(connectNodes(<Node x={150} y={100} height={100} width={100} name={'Node 1'} />, <Node x={400} y={300} height={100} width={300} name={'Node 2'} />))
+    setPathPoints(connectNodes(<Node x={100} y={100} height={100} width={100} name={'Node 1'} />, <Node x={200} y={300} height={300} width={80} name={'Node 2'} />))
   }
 
   return (
     <div className="wrapper">
       <Background />
       <svg className="flow-container">
-        <Node x={150} y={100} height={100} width={100} name={'Node 1'} />
-        <Node x={400} y={300} height={100} width={300} name={'Node 2'} />
+        <Node x={100} y={100} height={100} width={100} name={'Node 1'} />
+        <Node x={200} y={300} height={300} width={80} name={'Node 2'} />
         
         {/* the parameters in 'OrthogonalEdgeRouter' have to be the same as those of the above nodes */}
         {
           pathPoints.length ?
-          <OrthogonalEdgeRouter sourceX={150} sourceY={100} targetX={400} targetY={300} pathPoints={pathPoints} />
+          <OrthogonalEdgeRouter sourceX={100} sourceY={100} targetX={200} targetY={300} pathPoints={pathPoints} />
           : ''
         }
       </svg>
